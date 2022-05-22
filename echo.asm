@@ -33,28 +33,18 @@ phdr:                                                 ; Elf32_Phdr
 
 phdrsize      equ     $ - phdr
 
-; size_t strlen(char *str)
-; returns the length of a string in bytes
-; args:
-;    ecx = str
-; return:
-;    edx
-strlen:
-    xor     edx,            edx
-  .strlen_loop0:
-    cmp     BYTE [ecx+edx], 0
-    je      .strlen_loop0end
-    inc     edx
-    jmp     .strlen_loop0
-  .strlen_loop0end:
-    ret
-
 ; void print(char *str)
 ; prints a string
 ; args:
 ;    ecx = str
 print:
-    call    strlen
+    xor     edx,    edx
+  .printloop0:
+    cmp     BYTE [ecx+edx], 0
+    je      .printloop0end
+    inc     edx
+    jmp     .printloop0
+  .printloop0end:
     mov     ebx,    1
     mov     eax,    4
     int     0x80
