@@ -69,8 +69,8 @@ _start:
     mov     DWORD [ebp-4],  eax
     mov     esi,            1
 
-        cmp     edi,  esi
-        jle     .endmainloop0
+    cmp     edi,  esi
+    jle     .endmainloop0
 
     .startmainloop0:
         mov     ecx,    DWORD [ebp-4]
