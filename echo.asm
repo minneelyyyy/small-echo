@@ -72,7 +72,7 @@ _start:
     cmp     edi,  esi
     jle     .endmainloop0
 
-    .startmainloop0:
+  .startmainloop0:
         mov     ecx,    DWORD [ebp-4]
         mov     ecx,    DWORD [ecx+esi*4]
         call    print
